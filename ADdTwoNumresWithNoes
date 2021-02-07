@@ -1,0 +1,104 @@
+#include <string>
+#include <iostream>
+#include <stdlib.h>
+
+#ifndef ADdTN
+#define ADdTN
+
+int number(int a, int b, int c)
+{
+	int that = 0;
+
+	that = (c * 100) + (b * 10) + a;
+
+
+	return that;
+}
+
+#endif
+
+struct node {
+	int data, datb, datc;
+	struct node *p;
+	struct node* b;
+	struct node* a;
+};
+
+class ADdTwoNumres
+{
+public:
+	int number(int a, int b, int c);
+};
+
+
+
+/*struct LinkedList {
+	Node* head = NULL;
+	void append(int);
+};
+*/
+
+node* build_node(int one, int two, int there)
+{
+	//data = one;
+	struct node* temp, *p;
+	temp = new (struct node);
+
+	if (temp != NULL)
+	{
+		temp->data = one;
+		temp->datb = two;
+		temp->datc = there;
+		return temp;
+	}
+	else
+	{
+		std::cout << "nope" << std::endl;
+	}
+}
+
+
+
+int main()
+{
+	int L1 = 0;
+	int L2 = 0;
+	int L3 = 0;
+	int Alpha = 0;
+	int Beta = 0;
+	int Cookie = 0;
+	struct node* first, * a;
+	first = build_node(2, 4, 3);
+
+	struct node* Second, * b;
+	Second = build_node(5, 6, 4);
+
+	struct node* Sum, * p;
+
+	std::cout << first->data;
+	std::cout << first->datb;
+	std::cout << first->datc << std::endl;
+
+	std::cout << Second->data;
+	std::cout << Second->datb;
+	std::cout << Second->datc << std::endl;
+
+
+	L1 = number(first->data, first->datb, first->datc);
+
+	L2 = number(Second->data, Second->datb, Second->datc);
+
+	L3 = L1 + L2;
+
+	Alpha = L3 % 10;
+	L3 = (L3 - Alpha) / 10;
+	Beta = L3 % 10;
+	L3 = (L3 - Beta) / 10;
+	Cookie = L3;
+
+	Sum = build_node(Alpha, Beta, Cookie);
+
+	std::cout << Sum->data;
+	std::cout << Sum->datb;
+	std::cout << Sum->datc << std::endl;
+}
